@@ -1,0 +1,90 @@
+@font-face {
+    font-family: Titillium;
+    src: url("../fonts/Titillium.otf");
+}
+
+body {
+  font-family: 'Titillium';
+}
+
+.container-fluid{
+    background-color: #fff;
+}
+.navbar-brand {
+    padding: 0;
+	padding-right: 10px;
+    border-right: 1px solid rgba(231, 231, 231, 1);
+    height: 100%;	
+}
+
+.navbar-text{
+    font-size: 16px;
+    color: #a7cd3a !important;
+}
+
+.nav-sidebar>li>a {
+    font-size: 20px;
+}
+
+  .affix {
+      top: 20px;
+      z-index: 9999 !important;
+  }
+
+.line{
+	border-left: 1px solid rgba(231, 231, 231, 1);
+}
+
+.line a:hover{
+    color: #fff !important;
+}
+
+.line:hover{
+    background-color: #a7cd3a;
+}
+
+.line a {
+    color: #a7cd3a !important;
+}
+
+a{
+    font-size: 16px;
+	color: #fff;
+}
+
+a.active {
+    background-color: #fff;
+    color: #a7cd3a;
+    margin-left: -30px;
+    text-align: center;
+    width: 227px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 54px;
+    bottom: 0;
+    left: 0;
+	width: 212px;
+    padding: 15px;
+    overflow: auto;
+    background-color: #a7cd3a;
+}
+
+.nav-sidebar>li>a:focus,
+.nav-sidebar>li>a:hover{
+	background-color: #fff;
+	color: #a7cd3a;
+	margin-left: -30px;
+    text-align: center;
+    width: 227px;
+}
+
+.nav-sidebar>li{
+	padding: 12px 0;
+}
+
+i{
+    margin-right: 6px;
+}
+
