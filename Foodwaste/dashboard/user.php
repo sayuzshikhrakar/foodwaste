@@ -5,57 +5,57 @@ include('include/header.php');
 
 // Check, if username session is NOT set then this page will jump to login page
 if (!isset($_SESSION['id'])) {
-header('Location: ../index.php');
+    header('Location: ../index.php');
 }
 
 ?>
 
 <?php
 include"../connect.php";// Database connection
+
   
-  if(isset($_POST['PickupTime'])) { //Checks if form is submitted
-    $scheduledate = $_POST['schedule_date'];
-    $selecttime = $_POST['select_time'];
-    $phoneno = $_POST['phone_no'];
-    $location = $_POST['location'];
+//  if(isset($_POST['PickupTime'])) { //Checks if form is submitted
+//    $scheduledate = $_POST['schedule_date'];
+//    $selecttime = $_POST['select_time'];
+//    $phoneno = $_POST['phone_no'];
+//    $location = $_POST['location'];
+//
+//  $check=mysqli_query($con,"SELECT * FROM pick WHERE phone_no='$phoneno'");
+//    $checkrows=mysqli_num_rows($check);
+//
+//   if($checkrows>0) {
+//  echo'
+//   <script>
+//   window.onload = function() {
+//      alert("Picktime Already Exists");
+//      location.href = "user.php";
+//   }
+//   </script>';
+//   } else {
+//    $id = $_SESSION['id'];
+//      $sqlQuery = "INSERT IGNORE INTO pick (schedule_date, select_time, phone_no, userid, location) VALUES ( '$scheduledate', '$selecttime', '$phoneno', '$id', '$location')";
+//      if ($result = mysqli_query($con, $sqlQuery)) {
+//            echo'
+//   <script>
+//   window.onload = function() {
+//      alert("Your PickupTime is Registered");
+//      location.href = "user.php";
+//   }
+//   </script>
+//';
+//    } else {
+//            echo'
+//   <script>
+//   window.onload = function() {
+//      alert("Error in database. Contact to Admin");
+//      location.href = "user.php";
+//   }
+//   </script>
+//';
 
-  $check=mysqli_query($con,"SELECT * FROM pick WHERE phone_no='$phoneno'");
-    $checkrows=mysqli_num_rows($check);
+//    }
 
-   if($checkrows>0) {
-  echo'
-   <script>
-   window.onload = function() {
-      alert("Picktime Already Exists");
-      location.href = "user.php";  
-   }
-   </script>';
-   } else {  
-    $id = $_SESSION['id'];
-      $sqlQuery = "INSERT IGNORE INTO pick (schedule_date, select_time, phone_no, userid, location) VALUES ( '$scheduledate', '$selecttime', '$phoneno', '$id', '$location')";  
-      if ($result = mysqli_query($con, $sqlQuery)) {
-            echo'
-   <script>
-   window.onload = function() {
-      alert("Your PickupTime is Registered");
-      location.href = "user.php";  
-   }
-   </script>
-';
-    } else {
-            echo'
-   <script>
-   window.onload = function() {
-      alert("Error in database. Contact to Admin");
-      location.href = "user.php";  
-   }
-   </script>
-';
-
-    }
-
-}
-  }
+//}}
 
   ?>
 
@@ -89,12 +89,10 @@ return false;
   <div class="col-xs-offset-3 col-xs-8">
    <div class="login-page">
   <div class="form">
-
       <h1 style="color: #6c7073; margin: 0px 0px 40px 0px;">Select Your Pickup Time</h1>
-
-    <form class="login-form" action="" method="post" >
-      <input type="" required name="schedule_date" id="datepicker1" placeholder="Select PickupDate" autocomplete="off"/>
-           
+    <form class="login-form" action="insertData.php" method="post" >
+      <input type="date" required name="schedule_date" placeholder="Select PickupDate" autocomplete="off"/>
+        <input type="hidden" name="userid" value="<?php  echo $_SESSION['id'];?>">
             <select name="select_time" placeholder="select_time">
                 <option selected="true" disabled="disabled">Select Time</option>
                 <option value="06:00 AM to 09:00 AM">06:00 AM to 09:00 AM</option>
@@ -116,13 +114,9 @@ return false;
                 <option value="Baudha">Baudha</option>
                 <option value="Gopi Krishna">Gopi Krishna</option>
                 <option value="Sukhedhara">Sukhedhara</option>
-            </select> 
-     
+            </select>
             <input type="text"required name="phone_no" placeholder="Your contact Number" ID="txtPhn" onkeypress="return validate(event)" autocomplete="off"/>
-        
-          
-     
- <button type="submit" value="submit" name="PickupTime" class="button button-block"/>Register</button>  
+        <button type="submit" value="submit" name="PickupTime" class="button button-block"/>Register</button>
     </form>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";//Host ip address 127.0.0.1
 $user ="root"; //mysql username
-$password ="";//mysql password
+$password ="root";//mysql password
 $database= "foodwaste";
 
 $con = mysqli_connect($host, $user, $password);
